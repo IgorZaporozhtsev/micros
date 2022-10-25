@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: animal
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: "/cats-api"
+            backend:
+              service:
+                name: cats-api
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: "/jokes"
+            backend:
+              service:
+                name: jokes
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: "/spring-admin"
+            backend:
+              service:
+                name: spring-admin
+                port:
+                  number: 80
